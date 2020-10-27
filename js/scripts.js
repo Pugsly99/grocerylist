@@ -1,22 +1,22 @@
 $(document).ready(function(){
 
   let groceryList = [];
-  const show = groceryList.length;
+
   
   $("#typeIn").submit(function() {
     event.preventDefault();
     
     let item = $("#items").val();
 
-    if (item.legth != 0) {
+    if (item.length != 0) {
       groceryList.push(item)
-      console.log(groceryList)
       $("#typeIn")[0].reset();
-    } 
+    }       
+    $("#roughList").append("<p>" + groceryList[groceryList.length - 1] + "</p>"); 
 
-    if (show = 1){
-    $("#roughList").append( groceryList[show]);
-    }
-
+    const sortedList = groceryList.sort();
+    //console.log(sortedList);
+    $("#list").append("<li>" + sortedList + "</li>");
+  
   });
 });    
